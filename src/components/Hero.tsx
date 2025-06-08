@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Star, Shield, Clock } from 'lucide-react';
 
 const Hero = () => {
@@ -32,7 +32,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Premium Car Detailing
+            Creative Car Care
             <span className="block text-blue-400">That Exceeds Expectations</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">

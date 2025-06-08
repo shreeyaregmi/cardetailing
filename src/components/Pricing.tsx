@@ -1,7 +1,14 @@
-import React from "react";
 import { Check, Star, Crown } from "lucide-react";
 
 const Pricing = () => {
+
+const scrollToContact = () => {
+    const element = document.querySelector('#contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   const packages = [
     {
       name: "Essential Wash",
@@ -53,6 +60,8 @@ const Pricing = () => {
       icon: <Crown className="w-6 h-6" />,
     },
   ];
+
+  
 
   const addOns = [
     { name: "Pet Hair Removal", price: "$25" },
@@ -130,6 +139,7 @@ const Pricing = () => {
                 </ul>
 
                 <button
+                 onClick={scrollToContact}
                   className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-200 ${
                     pkg.popular
                       ? "bg-blue-600 text-white hover:bg-blue-700"
@@ -137,6 +147,7 @@ const Pricing = () => {
                   }`}
                 >
                   Book This Package
+          
                 </button>
               </div>
             </div>

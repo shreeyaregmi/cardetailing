@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, MapPin } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Menu, X, Phone, MapPin } from "lucide-react";
+import carlogo from "../assets/carlogo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,23 +10,23 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Pricing", href: "#pricing" },
+    { name: "Gallery", href: "#gallery" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -38,32 +39,43 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <Phone className="w-4 h-4" />
-              <span>(555) 123-4567</span>
+              <span>(+61) 417 100 456</span>
             </div>
             <div className="flex items-center space-x-1">
               <MapPin className="w-4 h-4" />
-              <span>Downtown Area - Mobile Service Available</span>
+              <span>Darwin, NT - Mobile Service Available</span>
             </div>
           </div>
           <div className="hidden md:block">
-            <span>Open Mon-Sat 8AM-6PM</span>
+            <span>Open Mon-Sun 6AM-7PM</span>
           </div>
         </div>
       </div>
 
       {/* Main header */}
-      <header className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
-      }`}>
+      <header
+        className={`fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-white/95 backdrop-blur-sm"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">CD</span>
+              <div className=" mr-3">
+                <img
+                  src={carlogo}
+                  alt="Car Logo"
+                  className="w-14 h-14 rounded-full flex object-contain"
+                />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Crystal Detailing</h1>
-                <p className="text-sm text-gray-600 hidden sm:block">Premium Car Care</p>
+                <h1 className="text-2xl font-bold text-blue-900">
+                  C <sup>3</sup>
+                </h1>
+
+                <p className="text-ellipsis text-blue-600 hidden sm:block typing-animation overflow-hidden whitespace-nowrap  ">
+                  Creative Car Care
+                </p>
               </div>
             </div>
 
@@ -82,7 +94,7 @@ const Header = () => {
 
             <div className="hidden md:flex items-center space-x-4">
               <button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => scrollToSection("#contact")}
                 className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
               >
                 Book Now
@@ -94,7 +106,11 @@ const Header = () => {
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -113,7 +129,7 @@ const Header = () => {
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('#contact')}
+                onClick={() => scrollToSection("#contact")}
                 className="w-full mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
               >
                 Book Now
